@@ -4,7 +4,7 @@ div.photo {
 	flex-direction: column;
 	width: 15%;
 	height: 30%;
-	font-family: 'Pangolin', cursive;
+	font-family: 'Nanum Pen Script', cursive;
 	background-color: white;
 	user-select: none;
 	filter: drop-shadow(0 0.1rem 0.2rem black);
