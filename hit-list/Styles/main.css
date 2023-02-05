@@ -33,6 +33,10 @@ div#board {
 }
 main {
 	position: absolute;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	gap: 2% 0;
 	top: 0;
 	bottom: 0;
 	left: 0;
@@ -41,6 +45,5 @@ main {
 	max-height: 90.74074074%; /* (1080 - 100) / 1080 */
 	aspect-ratio: 1539 / 980; /* (1639 - 100) / (1080 - 100) */
 	margin: auto;
-	padding: 10px;
 	box-sizing: border-box;
 }
