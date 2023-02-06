@@ -28,7 +28,7 @@ div.photo > div > img, div.photo > div > svg {
 	aspect-ratio: 1;
 }
 div.photo > div > svg {
-	fill: red;
+	color: red;
 	font-family: 'Finger Paint', cursive;
 	overflow: visible;
 }
