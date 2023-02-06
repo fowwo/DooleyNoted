@@ -1,37 +1,39 @@
 const main = document.querySelector("main");
 
-const ghosts = [
-	"Banshee",
-	"Demon",
-	"Deogen",
-	"Goryo",
-	"Hantu",
-	"Jinn",
-	"Mare",
-	"Moroi",
-	"Myling",
-	"Obake",
-	"Oni",
-	"Onryo",
-	"Phantom",
-	"Poltergeist",
-	"Raiju",
-	"Revenant",
-	"Shade",
-	"Spirit",
-	"Thaye",
-	"The Mimic",
-	"The Twins",
-	"Wraith",
-	"Yokai",
-	"Yurei"
-];
+const ghosts = {
+	"Banshee": 0,
+	"Demon": 0,
+	"Deogen": 0,
+	"Goryo": 0,
+	"Hantu": 0,
+	"Jinn": 0,
+	"Mare": 0,
+	"Moroi": 0,
+	"Myling": 0,
+	"Obake": 0,
+	"Oni": 0,
+	"Onryo": 0,
+	"Phantom": 0,
+	"Poltergeist": 0,
+	"Raiju": 0,
+	"Revenant": 0,
+	"Shade": 0,
+	"Spirit": 0,
+	"Thaye": 0,
+	"The Mimic": 0,
+	"The Twins": 0,
+	"Wraith": 0,
+	"Yokai": 0,
+	"Yurei": 0
+};
 
-for (const ghost of ghosts) {
+for (const ghost in ghosts) {
 	const photo = document.createElement("div");
 	const div = document.createElement("div");
 	const img = document.createElement("img");
 	const buttons = document.createElement("div");
+	const minus = button("-");
+	const plus = button("+");
 
 	photo.className = "photo";
 	photo.style.rotate = `${8 * Math.random() - 4}deg`;
@@ -39,12 +41,26 @@ for (const ghost of ghosts) {
 	// img.src = `Images/Ghosts/${ghost}.jpg`;
 	div.appendChild(img);
 
-	div.appendChild(svg("", "0 0 1 25")); // Count
+	const count = svg("", "0 0 1 25");
+	div.appendChild(count);
 
 	photo.appendChild(div);
 
-	buttons.appendChild(button("-"));
-	buttons.appendChild(button("+"));
+	const text = count.querySelector("text");
+	minus.addEventListener("click", () => {
+		if (ghosts[ghost] > 0) {
+			ghosts[ghost]--;
+			text.innerHTML = toRomanNumerals(ghosts[ghost]);
+		}
+	});
+	buttons.appendChild(minus);
+
+	plus.addEventListener("click", () => {
+		ghosts[ghost]++;
+		text.innerHTML = toRomanNumerals(ghosts[ghost]);
+	});
+	buttons.appendChild(plus);
+
 	div.appendChild(buttons);
 	
 	photo.appendChild(svg(ghost, "0 0 1 22"));
@@ -72,4 +88,15 @@ function button(innerText) {
 	const button = document.createElement("button");
 	button.appendChild(svg(innerText, "0 0 25 25"));
 	return button;
+}
+
+function toRomanNumerals(x) {
+	const list = [ ["M", 1000], ["CM", 900], ["D", 500], ["CD", 400], ["C", 100], ["XC", 90], ["L", 50], ["XL", 40], ["X", 10], ["IX", 9], ["V", 5], ["IV", 4], ["I", 1] ];
+	let string = "";
+	for (const [ numeral, value ] of list) {
+		let n = Math.floor(x / value);
+		string += numeral.repeat(n);
+		x -= n * value;
+	}
+	return string;
 }
