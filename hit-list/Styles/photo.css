@@ -1,10 +1,8 @@
 div.photo {
 	display: flex;
-	flex-shrink: 0;
 	flex-direction: column;
 	width: 15%;
 	height: 30%;
-	font-family: 'Nanum Pen Script', cursive;
 	background-color: white;
 	user-select: none;
 	filter: drop-shadow(0 0.1rem 0.2rem black);
@@ -17,8 +15,23 @@ div.photo:hover {
 	rotate: 0deg !important;
 	z-index: 1;
 }
-div.photo > img {
+div.photo > div {
+	position: relative;
 	width: 90%;
 	aspect-ratio: 1;
 	margin: 5% 5% 0% 5%;
+	flex-shrink: 0;
+}
+div.photo > div > img, div.photo > div > svg {
+	position: absolute;
+	width: 100%;
+	aspect-ratio: 1;
+}
+div.photo > div > svg {
+	fill: red;
+	font-family: 'Finger Paint', cursive;
+	overflow: visible;
+}
+div.photo > svg {
+	font-family: 'Nanum Pen Script', cursive;
 }
