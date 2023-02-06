@@ -31,6 +31,7 @@ for (const ghost of ghosts) {
 	const photo = document.createElement("div");
 	const div = document.createElement("div");
 	const img = document.createElement("img");
+	const buttons = document.createElement("div");
 
 	photo.className = "photo";
 	photo.style.rotate = `${8 * Math.random() - 4}deg`;
@@ -42,6 +43,10 @@ for (const ghost of ghosts) {
 
 	photo.appendChild(div);
 
+	buttons.appendChild(button("-"));
+	buttons.appendChild(button("+"));
+	div.appendChild(buttons);
+	
 	photo.appendChild(svg(ghost, "0 0 1 22"));
 
 	main.appendChild(photo);
@@ -61,4 +66,10 @@ function svg(innerHTML, viewBox) {
 	svg.appendChild(text);
 
 	return svg;
+}
+
+function button(innerText) {
+	const button = document.createElement("button");
+	button.appendChild(svg(innerText, "0 0 25 25"));
+	return button;
 }

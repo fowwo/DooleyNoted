@@ -35,3 +35,33 @@ div.photo > div > svg {
 div.photo > svg {
 	font-family: 'Nanum Pen Script', cursive;
 }
+div.photo > div > div {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	z-index: 1;
+	transition: opacity 350ms ease;
+}
+div.photo:hover > div > div { opacity: 1; }
+div.photo > div > div > button {
+	width: 40%;
+	font-family: 'Martian Mono', monospace;
+	color: white;
+	transition-property: background-color, border-color, color, scale;
+	transition-duration: 100ms;
+	transition-timing-function: ease;
+}
+div.photo > div > div > button:hover { color: black; }
+div.photo > div > div > button:first-child { background-color: #f004; border: 1px solid #f00; }
+div.photo > div > div > button:first-child:hover { background-color: #f00; }
+div.photo > div > div > button:last-child { background-color: #0f04; border: 1px solid #0f0; }
+div.photo > div > div > button:last-child:hover { background-color: #0f0; }
+div.photo > div > div > button:active {
+	background-color: white !important;
+	border-color: white;
+	scale: 90%;
+}
