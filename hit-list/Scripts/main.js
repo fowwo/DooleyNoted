@@ -47,16 +47,17 @@ for (const ghost in ghosts) {
 	photo.appendChild(div);
 
 	const text = count.querySelector("text");
+	minus.disabled = true;
 	minus.addEventListener("click", () => {
-		if (ghosts[ghost] > 0) {
-			ghosts[ghost]--;
-			text.innerHTML = toRomanNumerals(ghosts[ghost]);
-		}
+		ghosts[ghost]--;
+		if (ghosts[ghost] === 0) minus.disabled = true;
+		text.innerHTML = toRomanNumerals(ghosts[ghost]);
 	});
 	buttons.appendChild(minus);
 
 	plus.addEventListener("click", () => {
 		ghosts[ghost]++;
+		minus.disabled = false;
 		text.innerHTML = toRomanNumerals(ghosts[ghost]);
 	});
 	buttons.appendChild(plus);

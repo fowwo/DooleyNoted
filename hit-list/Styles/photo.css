@@ -55,13 +55,19 @@ div.photo > div > div > button {
 	transition-duration: 100ms;
 	transition-timing-function: ease;
 }
-div.photo > div > div > button:hover { color: black; }
+div.photo > div > div > button:enabled:hover { color: black; }
 div.photo > div > div > button:first-child { background-color: #f004; border: 1px solid #f00; }
-div.photo > div > div > button:first-child:hover { background-color: #f00; }
+div.photo > div > div > button:enabled:first-child:hover { background-color: #f00; }
 div.photo > div > div > button:last-child { background-color: #0f04; border: 1px solid #0f0; }
-div.photo > div > div > button:last-child:hover { background-color: #0f0; }
-div.photo > div > div > button:active {
+div.photo > div > div > button:enabled:last-child:hover { background-color: #0f0; }
+div.photo > div > div > button:enabled:active {
 	background-color: white !important;
 	border-color: white;
 	scale: 90%;
+}
+div.photo > div > div > button:disabled {
+	background-color: #0004;
+	color: black;
+	border-color: transparent;
+	cursor: not-allowed;
 }
