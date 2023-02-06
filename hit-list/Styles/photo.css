@@ -6,7 +6,7 @@ div.photo {
 	background-color: white;
 	user-select: none;
 	filter: drop-shadow(0 0.1rem 0.2rem black);
-	transition-property: scale, rotate;
+	transition-property: background-color, color, rotate, scale;
 	transition-duration: 350ms;
 	transition-timing-function: ease;
 }
@@ -31,6 +31,10 @@ div.photo > div > svg {
 	color: red;
 	font-family: 'Finger Paint', cursive;
 	overflow: visible;
+}
+div.photo:not(:has(div > svg > text:empty)) {
+	background-color: black;
+	color: red;
 }
 div.photo > svg {
 	font-family: 'Nanum Pen Script', cursive;
