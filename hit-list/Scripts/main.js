@@ -1,3 +1,4 @@
+import { createScalableText } from "./element.js";
 import { toRomanNumerals } from "./func.js";
 
 const main = document.querySelector("main");
@@ -43,7 +44,7 @@ for (const ghost in ghosts) {
 	// img.src = `Images/Ghosts/${ghost}.jpg`;
 	div.appendChild(img);
 
-	const count = svg("", "0 0 1 25");
+	const count = createScalableText("", "0 0 1 25");
 	div.appendChild(count);
 
 	photo.appendChild(div);
@@ -66,29 +67,13 @@ for (const ghost in ghosts) {
 
 	div.appendChild(buttons);
 	
-	photo.appendChild(svg(ghost, "0 0 1 22"));
+	photo.appendChild(createScalableText(ghost, "0 0 1 22"));
 
 	main.appendChild(photo);
 }
 
-function svg(innerHTML, viewBox) {
-	const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-	const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-
-	svg.setAttribute("viewBox", viewBox);
-
-	text.innerHTML = innerHTML;
-	text.setAttribute("x", "50%");
-	text.setAttribute("y", "50%");
-	text.setAttribute("text-anchor", "middle");
-	text.setAttribute("dominant-baseline", "central");
-	svg.appendChild(text);
-
-	return svg;
-}
-
 function button(innerText) {
 	const button = document.createElement("button");
-	button.appendChild(svg(innerText, "0 0 25 25"));
+	button.appendChild(createScalableText(innerText, "0 0 25 25"));
 	return button;
 }
