@@ -4,7 +4,7 @@ div#clipboard {
 	background-image: url(../Images/clipboard.png);
 	translate: 0 100vh;
 	pointer-events: none;
-	transition: translate 1s ease;
+	transition: translate 750ms ease;
 	z-index: 2;
 }
 div#clipboard::before {
@@ -60,7 +60,7 @@ div#view-clipboard {
 	color: white;
 	text-shadow: 0 2px 0 black;
 	user-select: none;
-	transition: opacity 1s ease;
+	transition: opacity 750ms ease;
 }
 div#view-clipboard::before {
 	content: "";
@@ -72,7 +72,6 @@ div#view-clipboard::before {
 		0 100px 100px 100px white,
 		0 30px 30px 30px white,
 		0 10px 10px 10px white;
-	transition: opacity 1s ease;
 	z-index: -1;
 }
 div#view-clipboard > svg { height: 50px; }
