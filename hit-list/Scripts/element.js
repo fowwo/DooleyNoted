@@ -1,4 +1,4 @@
-import { toRomanNumerals } from "./func.js";
+import { filterCSSString, toRomanNumerals } from "./func.js";
 
 /**
  * Creates center-aligned responsive text using an SVG element.
@@ -138,7 +138,7 @@ export function createEvidenceOption(
 
 	option.addEventListener("click", () => {
 		const ghosts = document.getElementById("ghosts");
-		const evidenceString = filterEvidenceString(evidence);
+		const evidenceString = filterCSSString(evidence);
 		if (selection.getAttribute("visibility") === "visible") {
 			ghosts.classList.remove(evidenceString);
 			ghosts.classList.add(`-${evidenceString}`);
@@ -183,7 +183,7 @@ export function createGhostOption(
 	strikethrough.setAttribute("visibility", "hidden");
 	option.appendChild(strikethrough);
 
-	for (const type of evidence) option.classList.add(filterEvidenceString(type));
+	for (const type of evidence) option.classList.add(filterCSSString(type));
 	option.addEventListener("click", () => {
 		if (selection.getAttribute("visibility") === "visible") {
 			selection.setAttribute("visibility", "hidden");
@@ -196,11 +196,4 @@ export function createGhostOption(
 		}
 	});
 	return option;
-}
-
-/**
- * Filters evidence names to be suitable for CSS class names.
- */
-function filterEvidenceString(evidence) {
-	return evidence.replace(/ /g, "-").replace(/\./g, "").toLowerCase();
 }

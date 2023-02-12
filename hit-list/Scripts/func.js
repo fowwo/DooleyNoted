@@ -11,3 +11,10 @@ export function toRomanNumerals(/** @type {Number} */ x) {
 	}
 	return string;
 }
+
+/**
+ * Filters strings to be suitable for CSS id and class names.
+ */
+export function filterCSSString(string) {
+	return string.replace(/ /g, "-").replace(/\./g, "").toLowerCase();
+}
