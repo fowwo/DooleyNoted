@@ -74,3 +74,44 @@ export function createPhoto(
 
 	return photo;
 }
+
+/**
+ * Creates an element containing a ghost option.
+ */
+export function createGhostOption(
+	/** @type {String} */ ghost
+) {
+	const option = createScalableText(ghost, "0 0 100 25");
+	const selection = document.createElementNS("http://www.w3.org/2000/svg", "image");
+	const strikethrough = document.createElementNS("http://www.w3.org/2000/svg", "image");
+
+	selection.id = "selection";
+	selection.setAttribute("visibility", "hidden");
+	selection.setAttribute("href", "Images/selection.png");
+	selection.setAttribute("width", "100%");
+	selection.setAttribute("height", "120%");
+	selection.setAttribute("y", "-10%");
+	option.appendChild(selection);
+
+	strikethrough.id = "strikethrough";
+	strikethrough.setAttribute("visibility", "hidden");
+	strikethrough.setAttribute("href", "Images/strikethrough.png");
+	strikethrough.setAttribute("width", "90%");
+	strikethrough.setAttribute("height", "120%");
+	strikethrough.setAttribute("x", "10%");
+	strikethrough.setAttribute("y", "-5%");
+	option.appendChild(strikethrough);
+
+	option.addEventListener("click", () => {
+		if (selection.getAttribute("visibility") === "visible") {
+			selection.setAttribute("visibility", "hidden");
+			strikethrough.setAttribute("visibility", "visible");
+		} else if (strikethrough.getAttribute("visibility") === "visible") {
+			strikethrough.setAttribute("visibility", "hidden");
+		} else {
+			document.querySelector("#ghosts image#selection[visibility=visible]")?.setAttribute("visibility", "hidden");
+			selection.setAttribute("visibility", "visible");
+		}
+	});
+	return option;
+}

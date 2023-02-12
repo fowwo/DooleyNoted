@@ -1,6 +1,7 @@
-import { createPhoto } from "./element.js";
+import { createPhoto, createGhostOption } from "./element.js";
 
 const main = document.querySelector("main");
+const ghostsContainer = document.getElementById("ghosts");
 
 const ghosts = [
 	"Banshee",
@@ -31,4 +32,5 @@ const ghosts = [
 
 for (const ghost of ghosts) {
 	main.appendChild(createPhoto(ghost));
+	ghostsContainer.appendChild(createGhostOption(ghost));
 }
