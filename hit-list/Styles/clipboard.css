@@ -95,3 +95,31 @@ div#ghosts.-spirit-box > svg.spirit-box,
 div#ghosts.-freezing-temperatures > svg.freezing-temperatures {
 	opacity: 15%;
 }
+
+div#ghosts.banshee > svg#banshee,
+div#ghosts.banshee > svg#banshee,
+div#ghosts.demon > svg#demon,
+div#ghosts.deogen > svg#deogen,
+div#ghosts.goryo > svg#goryo,
+div#ghosts.hantu > svg#hantu,
+div#ghosts.jinn > svg#jinn,
+div#ghosts.mare > svg#mare,
+div#ghosts.moroi > svg#moroi,
+div#ghosts.myling > svg#myling,
+div#ghosts.obake > svg#obake,
+div#ghosts.oni > svg#oni,
+div#ghosts.onryo > svg#onryo,
+div#ghosts.phantom > svg#phantom,
+div#ghosts.poltergeist > svg#poltergeist,
+div#ghosts.raiju > svg#raiju,
+div#ghosts.revenant > svg#revenant,
+div#ghosts.shade > svg#shade,
+div#ghosts.spirit > svg#spirit,
+div#ghosts.thaye > svg#thaye,
+div#ghosts.the-mimic > svg#the-mimic,
+div#ghosts.the-twins > svg#the-twins,
+div#ghosts.wraith > svg#wraith,
+div#ghosts.yokai > svg#yokai,
+div#ghosts.yurei > svg#yurei {
+	color: red;
+}

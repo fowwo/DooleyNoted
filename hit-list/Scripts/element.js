@@ -74,13 +74,17 @@ export function createPhoto(
 	minus.disabled = true;
 	minus.addEventListener("click", () => {
 		count--;
-		if (count === 0) minus.disabled = true;
+		if (count === 0) {
+			minus.disabled = true;
+			document.getElementById("ghosts").classList.remove(filterCSSString(ghost));
+		}
 		countTextElement.innerHTML = toRomanNumerals(count);
 	});
 
 	plus.addEventListener("click", () => {
 		count++;
 		minus.disabled = false;
+		document.getElementById("ghosts").classList.add(filterCSSString(ghost));
 		countTextElement.innerHTML = toRomanNumerals(count);
 	});
 
@@ -183,6 +187,7 @@ export function createGhostOption(
 	strikethrough.setAttribute("visibility", "hidden");
 	option.appendChild(strikethrough);
 
+	option.id = filterCSSString(ghost);
 	for (const type of evidence) option.classList.add(filterCSSString(type));
 	option.addEventListener("click", () => {
 		if (selection.getAttribute("visibility") === "visible") {
