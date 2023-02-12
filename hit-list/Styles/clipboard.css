@@ -56,28 +56,29 @@ div#view-clipboard {
 	bottom: 0;
 	left: 0;
 	right: 0;
+	height: 5vh;
+	padding: 0 10%;
 	font-family: 'Alegreya', serif;
 	color: white;
 	text-shadow: 0 1.75px 0 black;
 	user-select: none;
-	transition: opacity 750ms ease;
-	z-index: 0;
 }
 div#view-clipboard::before {
 	content: "";
 	position: absolute;
 	top: 100%;
-	left: 0;
-	right: 0;
 	box-shadow:
-		0 100px 100px 100px white,
-		0 30px 30px 30px white,
-		0 10px 10px 10px white;
+		0 210px 200px 200px white,
+		0 130px 120px 120px white,
+		0 70px 60px 60px white,
+		0 30px 20px 20px white;
+	transition: box-shadow 750ms ease;
 	z-index: -1;
 }
-div#view-clipboard > svg { height: 5vh; }
+div#view-clipboard > svg { transition: opacity 750ms ease; }
 div#clipboard:has(~ #view-clipboard:hover), div#clipboard:hover { translate: 0; }
-div#clipboard:hover ~ div#view-clipboard, div#view-clipboard:hover { opacity: 0; }
+div#clipboard:hover ~ div#view-clipboard > svg, div#view-clipboard:hover > svg { opacity: 0; }
+div#clipboard:hover ~ div#view-clipboard::before, div#view-clipboard:hover::before { box-shadow: none; }
 
 div#ghosts.emf-level-5 > svg:not(.emf-level-5),
 div#ghosts.dots-projector > svg:not(.dots-projector),
