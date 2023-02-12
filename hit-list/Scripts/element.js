@@ -1,9 +1,23 @@
 import { toRomanNumerals } from "./func.js";
 
 /**
- * Creates automatically scaling text using an SVG element.
+ * Creates center-aligned responsive text using an SVG element.
  */
-export function createScalableText(
+export function createCenteredResponsiveText(
+	/** @type {String} */ innerHTML,
+	/** @type {String} */ viewBox
+) {
+	const svg = createResponsiveText(innerHTML, viewBox);
+	const text = svg.querySelector("text");
+	text.setAttribute("x", "50%");
+	text.setAttribute("text-anchor", "middle");
+	return svg;
+}
+
+/**
+ * Creates responsive text using an SVG element.
+ */
+export function createResponsiveText(
 	/** @type {String} */ innerHTML,
 	/** @type {String} */ viewBox
 ) {
@@ -14,9 +28,7 @@ export function createScalableText(
 	svg.appendChild(text);
 
 	text.innerHTML = innerHTML;
-	text.setAttribute("x", "50%");
 	text.setAttribute("y", "50%");
-	text.setAttribute("text-anchor", "middle");
 	text.setAttribute("dominant-baseline", "central");
 
 	return svg;
@@ -32,14 +44,14 @@ export function createPhoto(
 
 	const createButton = (innerText) => {
 		const button = document.createElement("button");
-		button.appendChild(createScalableText(innerText, "0 0 25 25"));
+		button.appendChild(createCenteredResponsiveText(innerText, "0 0 25 25"));
 		return button;
 	};
 
 	const photo = document.createElement("div");
 	const imageContainer = document.createElement("div");
 	const image = document.createElement("img");
-	const countElement = createScalableText("", "0 0 1 25");
+	const countElement = createCenteredResponsiveText("", "0 0 1 25");
 	const countTextElement = countElement.querySelector("text");
 	const buttons = document.createElement("div");
 	const minus = createButton("-");
@@ -48,7 +60,7 @@ export function createPhoto(
 	photo.className = "photo";
 	photo.style.rotate = `${8 * Math.random() - 4}deg`;
 	photo.appendChild(imageContainer);
-	photo.appendChild(createScalableText(ghost, "0 0 1 22"));
+	photo.appendChild(createCenteredResponsiveText(ghost, "0 0 1 22"));
 
 	imageContainer.appendChild(image);
 	imageContainer.appendChild(countElement);
@@ -81,23 +93,21 @@ export function createPhoto(
 export function createEvidenceOption(
 	/** @type {String} */ evidence
 ) {
-	const option = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+	const option = createResponsiveText(evidence, "0 0 160 30");
+	const text = option.querySelector("text");
 	const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-	const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
 	const selection = document.createElementNS("http://www.w3.org/2000/svg", "g");
 	const selection1 = document.createElementNS("http://www.w3.org/2000/svg", "image");
 	const selection2 = document.createElementNS("http://www.w3.org/2000/svg", "image");
 	const strikethrough = document.createElementNS("http://www.w3.org/2000/svg", "image");
 
+	text.setAttribute("x", "25");
+	text.setAttribute("y", "47%");
+	option.appendChild(text);
+
 	path.setAttribute("d", "M20,1V20H1V1H20m1-1H0V21H21V0Z");
 	path.setAttribute("transform", "translate(0 4)");
 	option.appendChild(path);
-
-	text.innerHTML = evidence;
-	text.setAttribute("x", "25");
-	text.setAttribute("y", "47%");
-	text.setAttribute("dominant-baseline", "central");
-	option.appendChild(text);
 
 	selection.id = "selection";
 	selection.setAttribute("visibility", "hidden");
@@ -126,7 +136,6 @@ export function createEvidenceOption(
 	strikethrough.setAttribute("visibility", "hidden");
 	option.appendChild(strikethrough);
 
-	option.setAttribute("viewBox", "0 0 160 30");
 	option.addEventListener("click", () => {
 		const ghosts = document.getElementById("ghosts");
 		const evidenceString = filterEvidenceString(evidence);
@@ -153,7 +162,7 @@ export function createGhostOption(
 	/** @type {String} */ ghost,
 	/** @type {String[]} */ evidence
 ) {
-	const option = createScalableText(ghost, "0 0 100 25");
+	const option = createCenteredResponsiveText(ghost, "0 0 100 25");
 	const selection = document.createElementNS("http://www.w3.org/2000/svg", "image");
 	const strikethrough = document.createElementNS("http://www.w3.org/2000/svg", "image");
 
