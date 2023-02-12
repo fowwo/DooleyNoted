@@ -16,37 +16,6 @@ html {
 		inset -30vw 0 20vw -20vw black;
 	overflow: hidden;
 }
-div#board {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	max-width: 90vw;
-	max-height: 90vh;
-	margin: auto;
-	background-image: url(../Images/board.jpg);
-	background-position: center;
-	background-size: contain;
-	background-repeat: no-repeat;
-	filter: drop-shadow(0 0 10px black);
-}
-main {
-	position: absolute;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
-	gap: 2% 0;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	max-width: 93.898717873%; /* (1639 - 100) / 1639 */
-	max-height: 90.74074074%; /* (1080 - 100) / 1080 */
-	aspect-ratio: 1539 / 980; /* (1639 - 100) / (1080 - 100) */
-	margin: auto;
-	box-sizing: border-box;
-}
 button {
 	padding: 0;
 	margin: 0;
@@ -63,4 +32,18 @@ hr {
 svg {
 	display: block;
 	fill: currentColor;
+}
+div.container {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	max-width: 90vw;
+	max-height: 90vh;
+	margin: auto;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	filter: drop-shadow(0 0 10px black);
 }

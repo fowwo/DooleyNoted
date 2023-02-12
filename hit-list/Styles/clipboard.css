@@ -1,18 +1,6 @@
 div#clipboard {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	max-width: 90vw;
-	max-height: 90vh;
-	margin: auto;
 	font-family: 'Alegreya', serif;
 	background-color: blanchedalmond;
-	background-position: center;
-	background-size: contain;
-	background-repeat: no-repeat;
-	filter: drop-shadow(0 0 10px black);
 }
 div#clipboard > div#evidence {
 	display: grid;
