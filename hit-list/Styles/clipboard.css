@@ -1,16 +1,25 @@
-div#clipboard {
+div#clipboard { background-image: url(../Images/clipboard.png); }
+div#clipboard > div {
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	max-width: 78.6931818182%; /* (654 - 100) / 704 */
+	max-height: 75.8551307847%; /* (854 - 100) / 994 */
+	aspect-ratio: 554 / 754; /* (654 - 100) / (854 - 100) */
 	font-family: 'Alegreya', serif;
-	background-color: blanchedalmond;
 }
-div#clipboard > div#evidence {
+div#evidence {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
-div#clipboard > div#ghosts {
+div#ghosts {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 }
-div#clipboard > div#evidence > svg, div#clipboard > div#ghosts > svg {
+div#evidence > svg, div#ghosts > svg {
 	overflow: visible;
 	cursor: pointer;
 	user-select: none;

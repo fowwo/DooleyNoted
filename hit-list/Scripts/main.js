@@ -41,8 +41,8 @@ const evidence = [
 	"Freezing Temperatures"
 ];
 
-document.querySelector("#clipboard > h1").replaceWith(createResponsiveText("Evidence", "0 0 200 15"));
-document.querySelector("#clipboard > span").replaceWith((() => {
+document.querySelector("#clipboard h1").replaceWith(createResponsiveText("Evidence", "0 0 200 15"));
+document.querySelector("#clipboard span").replaceWith((() => {
 	const text = createCenteredResponsiveText("Using the evidence we've found, we believe the ghost is a:", "0 0 400 20");
 	text.style.margin = "3%";
 	return text;
