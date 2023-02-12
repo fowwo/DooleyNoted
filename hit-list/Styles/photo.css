@@ -4,14 +4,14 @@ div#board > div {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	gap: 2% 0;
+	align-items: center;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	max-width: 93.898717873%; /* (1639 - 100) / 1639 */
-	max-height: 90.74074074%; /* (1080 - 100) / 1080 */
-	aspect-ratio: 1539 / 980; /* (1639 - 100) / (1080 - 100) */
+	max-height: 92.8977272727%; /* (1408 - 100) / 1408 */
+	aspect-ratio: 1539 / 1308; /* (1639 - 100) / (1408 - 100) */
 	margin: auto;
 	box-sizing: border-box;
 }
@@ -19,7 +19,7 @@ div.photo {
 	display: flex;
 	flex-direction: column;
 	width: 15%;
-	height: 30%;
+	height: 22%;
 	background-color: white;
 	user-select: none;
 	filter: drop-shadow(0 0.1rem 0.2rem black);
