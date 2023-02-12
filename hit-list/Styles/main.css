@@ -55,6 +55,11 @@ button {
 	cursor: pointer;
 	font: inherit;
 }
+hr {
+	margin: 2% 0;
+	border: none;
+	border-top: 1px solid currentColor;
+}
 svg {
 	display: block;
 	fill: currentColor;
