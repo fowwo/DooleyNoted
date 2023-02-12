@@ -14,11 +14,15 @@ div#clipboard {
 	background-repeat: no-repeat;
 	filter: drop-shadow(0 0 10px black);
 }
+div#clipboard > div#evidence {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
 div#clipboard > div#ghosts {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 }
-div#clipboard > div#ghosts > svg {
+div#clipboard > div#evidence > svg, div#clipboard > div#ghosts > svg {
 	overflow: visible;
 	cursor: pointer;
 	user-select: none;

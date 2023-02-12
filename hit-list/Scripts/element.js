@@ -76,6 +76,71 @@ export function createPhoto(
 }
 
 /**
+ * Creates an element containing an evidence option.
+ */
+export function createEvidenceOption(
+	/** @type {String} */ evidence
+) {
+	const option = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+	const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+	const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+	const selection = document.createElementNS("http://www.w3.org/2000/svg", "g");
+	const selection1 = document.createElementNS("http://www.w3.org/2000/svg", "image");
+	const selection2 = document.createElementNS("http://www.w3.org/2000/svg", "image");
+	const strikethrough = document.createElementNS("http://www.w3.org/2000/svg", "image");
+
+	path.setAttribute("d", "M20,1V20H1V1H20m1-1H0V21H21V0Z");
+	path.setAttribute("transform", "translate(0 4)");
+	option.appendChild(path);
+
+	text.innerHTML = evidence;
+	text.setAttribute("x", "25");
+	text.setAttribute("y", "47%");
+	text.setAttribute("dominant-baseline", "central");
+	option.appendChild(text);
+
+	selection.id = "selection";
+	selection.setAttribute("visibility", "hidden");
+	option.appendChild(selection);
+
+	selection1.setAttribute("href", "Images/strikethrough.png");
+	selection1.setAttribute("width", "40");
+	selection1.setAttribute("height", "5");
+	selection1.setAttribute("transform", "rotate(45)");
+	selection.appendChild(selection1);
+
+	selection2.setAttribute("href", "Images/strikethrough.png");
+	selection2.setAttribute("width", "40");
+	selection2.setAttribute("height", "5");
+	selection2.setAttribute("x", "-15");
+	selection2.setAttribute("y", "-20");
+	selection2.setAttribute("transform", "rotate(135)");
+	selection.appendChild(selection2);
+
+	strikethrough.id = "strikethrough";
+	strikethrough.setAttribute("href", "Images/strikethrough.png");
+	strikethrough.setAttribute("width", "100%");
+	strikethrough.setAttribute("height", "166%");
+	strikethrough.setAttribute("x", "-5%");
+	strikethrough.setAttribute("transform", "scale(1 0.6)");
+	strikethrough.setAttribute("visibility", "hidden");
+	option.appendChild(strikethrough);
+
+	option.setAttribute("viewBox", "0 0 160 30");
+	option.addEventListener("click", () => {
+		if (selection.getAttribute("visibility") === "visible") {
+			selection.setAttribute("visibility", "hidden");
+			strikethrough.setAttribute("visibility", "visible");
+		} else if (strikethrough.getAttribute("visibility") === "visible") {
+			strikethrough.setAttribute("visibility", "hidden");
+		} else {
+			selection.setAttribute("visibility", "visible");
+		}
+	});
+	return option;
+}
+
+/**
  * Creates an element containing a ghost option.
  */
 export function createGhostOption(
@@ -86,20 +151,20 @@ export function createGhostOption(
 	const strikethrough = document.createElementNS("http://www.w3.org/2000/svg", "image");
 
 	selection.id = "selection";
-	selection.setAttribute("visibility", "hidden");
 	selection.setAttribute("href", "Images/selection.png");
 	selection.setAttribute("width", "100%");
 	selection.setAttribute("height", "120%");
 	selection.setAttribute("y", "-10%");
+	selection.setAttribute("visibility", "hidden");
 	option.appendChild(selection);
 
 	strikethrough.id = "strikethrough";
-	strikethrough.setAttribute("visibility", "hidden");
 	strikethrough.setAttribute("href", "Images/strikethrough.png");
 	strikethrough.setAttribute("width", "90%");
 	strikethrough.setAttribute("height", "120%");
 	strikethrough.setAttribute("x", "10%");
 	strikethrough.setAttribute("y", "-5%");
+	strikethrough.setAttribute("visibility", "hidden");
 	option.appendChild(strikethrough);
 
 	option.addEventListener("click", () => {
