@@ -1,6 +1,6 @@
 import { createPhoto, createEvidenceOption, createGhostOption, createResponsiveText, createCenteredResponsiveText } from "./element.js";
 
-const main = document.querySelector("main");
+const board = document.querySelector("#board > div");
 const evidenceContainer = document.getElementById("evidence");
 const ghostsContainer = document.getElementById("ghosts");
 
@@ -59,6 +59,6 @@ for (const type of evidence) {
 }
 
 for (const ghost in ghosts) {
-	main.appendChild(createPhoto(ghost));
+	board.appendChild(createPhoto(ghost));
 	ghostsContainer.appendChild(createGhostOption(ghost, ghosts[ghost]));
 }

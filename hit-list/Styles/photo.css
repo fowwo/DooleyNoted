@@ -1,5 +1,5 @@
 div#board { background-image: url(../Images/board.jpg); }
-main {
+div#board > div {
 	position: absolute;
 	display: flex;
 	flex-wrap: wrap;
