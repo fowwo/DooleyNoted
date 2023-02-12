@@ -62,3 +62,5 @@ for (const ghost in ghosts) {
 	board.appendChild(createPhoto(ghost));
 	ghostsContainer.appendChild(createGhostOption(ghost, ghosts[ghost]));
 }
+
+document.querySelector("#view-clipboard").appendChild(createCenteredResponsiveText("[ hover to view clipboard ]", "0 0 175 25"));

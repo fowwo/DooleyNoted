@@ -1,4 +1,27 @@
-div#clipboard { background-image: url(../Images/clipboard.png); }
+div#clipboard {
+	max-height: 95vh;
+	max-width: 85vw;
+	background-image: url(../Images/clipboard.png);
+	translate: 0 100vh;
+	pointer-events: none;
+	transition: translate 1s ease;
+	z-index: 2;
+}
+div#clipboard::before {
+	content: "";
+	position: absolute;
+	display: block;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	max-width: 100%;
+	max-height: 100%;
+	aspect-ratio: 704 / 994;
+	transform: scaleY(2000%) translateY(47.5%);
+	pointer-events: auto;
+}
 div#clipboard > div {
 	position: absolute;
 	margin: auto;
@@ -10,6 +33,7 @@ div#clipboard > div {
 	max-height: 75.8551307847%; /* (854 - 100) / 994 */
 	aspect-ratio: 554 / 754; /* (654 - 100) / (854 - 100) */
 	font-family: 'Alegreya', serif;
+	pointer-events: auto;
 }
 div#evidence {
 	display: grid;
@@ -24,6 +48,36 @@ div#evidence > svg, div#ghosts > svg {
 	cursor: pointer;
 	user-select: none;
 }
+
+div#view-clipboard {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	font-family: 'Alegreya', serif;
+	color: white;
+	text-shadow: 0 2px 0 black;
+	user-select: none;
+	transition: opacity 1s ease;
+}
+div#view-clipboard::before {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	box-shadow:
+		0 100px 100px 100px white,
+		0 30px 30px 30px white,
+		0 10px 10px 10px white;
+	transition: opacity 1s ease;
+	z-index: -1;
+}
+div#view-clipboard > svg { height: 50px; }
+div#clipboard:has(~ #view-clipboard:hover), div#clipboard:hover { translate: 0; }
+div#clipboard:hover ~ div#view-clipboard, div#view-clipboard:hover { opacity: 0; }
 
 div#ghosts.emf-level-5 > svg:not(.emf-level-5),
 div#ghosts.dots-projector > svg:not(.dots-projector),
