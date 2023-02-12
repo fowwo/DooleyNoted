@@ -27,3 +27,20 @@ div#clipboard > div#evidence > svg, div#clipboard > div#ghosts > svg {
 	cursor: pointer;
 	user-select: none;
 }
+
+div#ghosts.emf-level-5 > svg:not(.emf-level-5),
+div#ghosts.dots-projector > svg:not(.dots-projector),
+div#ghosts.fingerprints > svg:not(.fingerprints),
+div#ghosts.ghost-orb > svg:not(.ghost-orb),
+div#ghosts.ghost-writing > svg:not(.ghost-writing),
+div#ghosts.spirit-box > svg:not(.spirit-box),
+div#ghosts.freezing-temperatures > svg:not(.freezing-temperatures),
+div#ghosts.-emf-level-5 > svg.emf-level-5,
+div#ghosts.-dots-projector > svg.dots-projector,
+div#ghosts.-fingerprints > svg.fingerprints,
+div#ghosts.-ghost-orb > svg.ghost-orb,
+div#ghosts.-ghost-writing > svg.ghost-writing,
+div#ghosts.-spirit-box > svg.spirit-box,
+div#ghosts.-freezing-temperatures > svg.freezing-temperatures {
+	opacity: 15%;
+}

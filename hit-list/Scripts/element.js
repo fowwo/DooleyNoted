@@ -128,12 +128,18 @@ export function createEvidenceOption(
 
 	option.setAttribute("viewBox", "0 0 160 30");
 	option.addEventListener("click", () => {
+		const ghosts = document.getElementById("ghosts");
+		const evidenceString = filterEvidenceString(evidence);
 		if (selection.getAttribute("visibility") === "visible") {
+			ghosts.classList.remove(evidenceString);
+			ghosts.classList.add(`-${evidenceString}`);
 			selection.setAttribute("visibility", "hidden");
 			strikethrough.setAttribute("visibility", "visible");
 		} else if (strikethrough.getAttribute("visibility") === "visible") {
+			ghosts.classList.remove(`-${evidenceString}`);
 			strikethrough.setAttribute("visibility", "hidden");
 		} else {
+			ghosts.classList.add(evidenceString);
 			selection.setAttribute("visibility", "visible");
 		}
 	});
@@ -144,7 +150,8 @@ export function createEvidenceOption(
  * Creates an element containing a ghost option.
  */
 export function createGhostOption(
-	/** @type {String} */ ghost
+	/** @type {String} */ ghost,
+	/** @type {String[]} */ evidence
 ) {
 	const option = createScalableText(ghost, "0 0 100 25");
 	const selection = document.createElementNS("http://www.w3.org/2000/svg", "image");
@@ -167,6 +174,7 @@ export function createGhostOption(
 	strikethrough.setAttribute("visibility", "hidden");
 	option.appendChild(strikethrough);
 
+	for (const type of evidence) option.classList.add(filterEvidenceString(type));
 	option.addEventListener("click", () => {
 		if (selection.getAttribute("visibility") === "visible") {
 			selection.setAttribute("visibility", "hidden");
@@ -179,4 +187,11 @@ export function createGhostOption(
 		}
 	});
 	return option;
+}
+
+/**
+ * Filters evidence names to be suitable for CSS class names.
+ */
+function filterEvidenceString(evidence) {
+	return evidence.replace(/ /g, "-").replace(/\./g, "").toLowerCase();
 }
