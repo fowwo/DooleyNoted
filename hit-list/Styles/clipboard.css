@@ -58,9 +58,10 @@ div#view-clipboard {
 	right: 0;
 	font-family: 'Alegreya', serif;
 	color: white;
-	text-shadow: 0 2px 0 black;
+	text-shadow: 0 1.75px 0 black;
 	user-select: none;
 	transition: opacity 750ms ease;
+	z-index: 0;
 }
 div#view-clipboard::before {
 	content: "";
@@ -74,7 +75,7 @@ div#view-clipboard::before {
 		0 10px 10px 10px white;
 	z-index: -1;
 }
-div#view-clipboard > svg { height: 50px; }
+div#view-clipboard > svg { height: 5vh; }
 div#clipboard:has(~ #view-clipboard:hover), div#clipboard:hover { translate: 0; }
 div#clipboard:hover ~ div#view-clipboard, div#view-clipboard:hover { opacity: 0; }
 
