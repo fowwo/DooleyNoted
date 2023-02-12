@@ -1,4 +1,4 @@
-import { createPhoto, createEvidenceOption, createGhostOption } from "./element.js";
+import { createPhoto, createEvidenceOption, createGhostOption, createResponsiveText } from "./element.js";
 
 const main = document.querySelector("main");
 const evidenceContainer = document.getElementById("evidence");
@@ -40,6 +40,8 @@ const evidence = [
 	"Spirit Box",
 	"Freezing Temperatures"
 ];
+
+document.querySelector("#clipboard > h1").replaceWith(createResponsiveText("Evidence", "0 0 200 15"));
 
 for (const type of evidence) {
 	const option = createEvidenceOption(type);
