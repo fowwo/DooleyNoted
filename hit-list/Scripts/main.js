@@ -1,4 +1,4 @@
-import { createPhoto, createEvidenceOption, createGhostOption, createResponsiveText } from "./element.js";
+import { createPhoto, createEvidenceOption, createGhostOption, createResponsiveText, createCenteredResponsiveText } from "./element.js";
 
 const main = document.querySelector("main");
 const evidenceContainer = document.getElementById("evidence");
@@ -42,6 +42,11 @@ const evidence = [
 ];
 
 document.querySelector("#clipboard > h1").replaceWith(createResponsiveText("Evidence", "0 0 200 15"));
+document.querySelector("#clipboard > span").replaceWith((() => {
+	const text = createCenteredResponsiveText("Using the evidence we've found, we believe the ghost is a:", "0 0 400 20");
+	text.style.margin = "3%";
+	return text;
+})());
 
 for (const type of evidence) {
 	const option = createEvidenceOption(type);
