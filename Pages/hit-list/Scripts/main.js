@@ -93,4 +93,4 @@ for (const ghost in ghosts) {
 }
 
 // View clipboard
-document.querySelector("#view-clipboard").appendChild(createCenteredResponsiveText("[ hover to view clipboard ]", "0 0 175 25"));
+document.querySelector("#view-clipboard").appendChild(createCenteredResponsiveText("[ tap/hover to view clipboard ]", "0 0 200 25"));
