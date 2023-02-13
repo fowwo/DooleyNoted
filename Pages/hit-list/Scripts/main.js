@@ -55,6 +55,17 @@ header.appendChild(createToggleButton(
 	},
 	true
 ));
+header.appendChild(createToggleButton(
+	'<svg viewBox="0 0 95 65"><path d="M87.5,17.5h-75a10,10,0,0,0-10,10v45a10,10,0,0,0,10,10h75a10,10,0,0,0,10-10v-45A10,10,0,0,0,87.5,17.5Zm-50,5h25v25h-25Zm-5,55h-20a5,5,0,0,1-5-5v-20h25Zm0-30H7.5v-20a5,5,0,0,1,5-5h20Zm30,30h-25v-25h25Zm30-5a5,5,0,0,1-5,5h-20v-25h25Zm-25-25v-25h20a5,5,0,0,1,5,5v20Z" transform="translate(-2.5 -17.5)"/></svg>',
+	"Toggle board-only mode",
+	(enabled) => {
+		if (enabled) {
+			document.documentElement.classList.add("board-only");
+		} else {
+			document.documentElement.classList.remove("board-only");
+		}
+	}
+));
 
 // Clipboard text
 document.querySelector("#clipboard h1").replaceWith(createResponsiveText("Evidence", "0 0 200 15"));
