@@ -42,6 +42,7 @@ const evidence = [
 	"Freezing Temperatures"
 ];
 
+// Header buttons
 header.appendChild(createToggleButton(
 	'<svg viewBox="0 0 100 48.45"><g transform="translate(0 -25.77)"><path opacity=33% d="M33.25,71.58l.77.59a24.23,24.23,0,1,1,0-44.33l-.76.58a27.29,27.29,0,0,0-3.47,40c.35.38.71.75,1.09,1.12A26.85,26.85,0,0,0,33.25,71.58Z"/><path opacity=66% d="M59,71.58l.77.59L56.61,73.3a23.79,23.79,0,0,1-6.61.93A24.21,24.21,0,0,1,37.89,71a22.22,22.22,0,0,1-2.73-1.85,24.21,24.21,0,0,1,0-38.28A21.72,21.72,0,0,1,37.89,29l.69-.38a24.24,24.24,0,0,1,21.22-.8l-.76.58a27.32,27.32,0,0,0,0,43.16Z"/><path d="M100,50A24.22,24.22,0,0,1,63.66,71a23.38,23.38,0,0,1-2.73-1.84,24.22,24.22,0,0,1,0-38.29A21.72,21.72,0,0,1,63.66,29l.69-.38A24.22,24.22,0,0,1,100,50Z"/></g></svg>',
 	"Toggle animation",
@@ -55,6 +56,7 @@ header.appendChild(createToggleButton(
 	true
 ));
 
+// Clipboard text
 document.querySelector("#clipboard h1").replaceWith(createResponsiveText("Evidence", "0 0 200 15"));
 document.querySelector("#clipboard span").replaceWith((() => {
 	const text = createCenteredResponsiveText("Using the evidence we've found, we believe the ghost is a:", "0 0 400 20");
@@ -62,6 +64,7 @@ document.querySelector("#clipboard span").replaceWith((() => {
 	return text;
 })());
 
+// Evidence list
 for (const type of evidence) {
 	const option = createEvidenceOption(type);
 	if (type === "Freezing Temperatures") {
@@ -72,9 +75,11 @@ for (const type of evidence) {
 	evidenceContainer.appendChild(option);
 }
 
+// Ghost list
 for (const ghost in ghosts) {
 	board.appendChild(createPhoto(ghost));
 	ghostsContainer.appendChild(createGhostOption(ghost, ghosts[ghost]));
 }
 
+// View clipboard
 document.querySelector("#view-clipboard").appendChild(createCenteredResponsiveText("[ hover to view clipboard ]", "0 0 175 25"));
