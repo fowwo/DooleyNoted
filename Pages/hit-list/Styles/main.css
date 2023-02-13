@@ -47,3 +47,9 @@ div.container {
 	background-repeat: no-repeat;
 	filter: drop-shadow(0 0 10px black);
 }
+
+html.no-animation *,
+html.no-animation *::before,
+html.no-animation *::after {
+	transition: none !important;
+}

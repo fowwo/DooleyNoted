@@ -202,3 +202,27 @@ export function createGhostOption(
 	});
 	return option;
 }
+
+/**
+ * Creates a toggleable button.
+ */
+export function createToggleButton(svg, title, callback, enabled = false) {
+	const button = document.createElement("button");
+	button.innerHTML = svg;
+	button.title = title;
+
+	enabled = !enabled; // This gets set back to normal in the listener call.
+	const listener = () => {
+		enabled = !enabled;
+		if (enabled) {
+			button.classList.add("toggled");
+		} else {
+			button.classList.remove("toggled");
+		}
+		callback(enabled);
+	};
+	listener();
+
+	button.addEventListener("click", listener);
+	return button;
+}
